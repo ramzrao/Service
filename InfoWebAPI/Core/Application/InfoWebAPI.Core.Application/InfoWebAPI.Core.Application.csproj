@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.5.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Scrutor" Version="3.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrastructure\InfoWebAPI.Infrastructure\InfoWebAPI.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\Persistence\InfoWebAPI.Persistence\InfoWebAPI.Persistence.csproj" />
+    <ProjectReference Include="..\..\InfoWebAPI.Common\InfoWebAPI.Common.csproj" />
+    <ProjectReference Include="..\..\InfoWebAPI.Domain\InfoWebAPI.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.identitymodel.tokens\5.3.0\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

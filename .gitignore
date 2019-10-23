@@ -1,0 +1,16 @@
+[Oo]bj/
+[Bb]in/
+.nuget/
+_ReSharper.*
+packages/
+artifacts/
+*.user
+*.suo
+*.userprefs
+*DS_Store
+*.sln.ide
+/.vs/PaymentService/v15/Server/sqlite3
+/.vs/config
+.vs
+/.idea/.idea.PaymentService
+.vscode

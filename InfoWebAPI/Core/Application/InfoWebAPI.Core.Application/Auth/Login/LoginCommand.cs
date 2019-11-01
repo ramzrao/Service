@@ -1,11 +1,12 @@
 ﻿using InfoWebAPI.Application.Auth.Jwt;
-using InfoWebAPI.Application.UserPermission;
+using InfoWebAPI.Application.Auth.Login;
 using InfoWebAPI.Common.Interfaces;
+using InfoWebAPI.Core.Application.UserPermission;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace InfoWebAPI.Application.Auth.Login
+namespace InfoWebAPI.InfoWebAX.Auth.Login
 {
     public class LoginCommand : IRequestHandler<LoginRequest, LoginResponse>
     {
@@ -30,7 +31,7 @@ namespace InfoWebAPI.Application.Auth.Login
                     IsSuccessful = false
                 });
             var accessToken = await _jwtFactory.GenerateEncodedToken(user.UserName);
-            var permissions = await _mediator.Send(new UserPermissionRequest { UserId = user.UserID });
+            var permissions = await _mediator.Send(new GetUserPermissionRequest { UserId = user.UserID });
             return await Task.FromResult(new LoginResponse
             {
                 AccessToken = accessToken,

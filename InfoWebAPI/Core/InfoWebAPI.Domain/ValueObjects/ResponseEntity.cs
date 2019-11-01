@@ -2,7 +2,7 @@
 {
     public class ResponseEntity
     {
-        public bool Success { get; set; }
+        public bool IsServiceCallSuccess { get; set; }
         public string ErrorMessage { get; set; }
     }
 }

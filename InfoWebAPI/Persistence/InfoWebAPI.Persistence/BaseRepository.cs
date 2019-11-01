@@ -30,5 +30,23 @@ namespace InfoWebAPI.Persistence
         {
             return _dbContext.Set<TEntity>().AsNoTracking().AsQueryable().Where(predicate.Compile());
         }
+
+        public void Add(TEntity entity)
+        {
+            _dbContext.Set<TEntity>().Add(entity);
+            _dbContext.SaveChanges();
+        }
+
+        public void Remove(TEntity entity)
+        {
+            _dbContext.Set<TEntity>().Remove(entity);
+            _dbContext.SaveChanges();
+        }
+
+        public void Update(TEntity entity)
+        {
+            _dbContext.Set<TEntity>().Update(entity);
+            _dbContext.SaveChanges();
+        }
     }
 }

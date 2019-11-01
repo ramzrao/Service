@@ -7,9 +7,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Threading.Tasks;
-
 namespace InfoWebAX
 {
     
@@ -58,6 +55,10 @@ namespace InfoWebAX
         [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/AddNewBarcode", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<InfoWebAX.AddNewBarcodeResponse> AddNewBarcodeAsync(InfoWebAX.AddNewBarcodeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/DeleteBarcode", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<InfoWebAX.DeleteBarcodeResponse> DeleteBarcodeAsync(InfoWebAX.DeleteBarcodeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/DeleteTextAnswers", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -123,6 +124,10 @@ namespace InfoWebAX
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<InfoWebAX.GenerateImageData81> GenerateImageData2Async(InfoWebAX.GenerateImageData8 request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/GenerateImageDataWrap", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<InfoWebAX.GenerateImageDataWrapResponse> GenerateImageDataWrapAsync(InfoWebAX.GenerateImageDataWrapRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/FetchQuestions", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<InfoWebAX.FetchQuestionsResponse> FetchQuestionsAsync(InfoWebAX.FetchQuestionsRequest request);
@@ -154,6 +159,10 @@ namespace InfoWebAX
         [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/AddTextAnswer", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<InfoWebAX.AddTextAnswerResponse> AddTextAnswerAsync(InfoWebAX.AddTextAnswerRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/GetStatusWrap", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<InfoWebAX.GetStatusWrapResponse> GetStatusWrapAsync(InfoWebAX.GetStatusWrapRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://infosalons.com.au/InfoServices/GetStatus1", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -776,6 +785,50 @@ namespace InfoWebAX
     {
         
         public AddNewBarcodeResponse()
+        {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteBarcode", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
+    public partial class DeleteBarcodeRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://infosalons.com.au/InfoServices/")]
+        public InfoWebAX.AuthenticationHeader AuthenticationHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=0)]
+        public string connectionString;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=1)]
+        public int contactKey;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=2)]
+        public string barcodeNumber;
+        
+        public DeleteBarcodeRequest()
+        {
+        }
+        
+        public DeleteBarcodeRequest(InfoWebAX.AuthenticationHeader AuthenticationHeader, string connectionString, int contactKey, string barcodeNumber)
+        {
+            this.AuthenticationHeader = AuthenticationHeader;
+            this.connectionString = connectionString;
+            this.contactKey = contactKey;
+            this.barcodeNumber = barcodeNumber;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteBarcodeResponse", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
+    public partial class DeleteBarcodeResponse
+    {
+        
+        public DeleteBarcodeResponse()
         {
         }
     }
@@ -1815,6 +1868,62 @@ namespace InfoWebAX
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GenerateImageDataWrap", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
+    public partial class GenerateImageDataWrapRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://infosalons.com.au/InfoServices/")]
+        public InfoWebAX.AuthenticationHeader AuthenticationHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=0)]
+        public string connectionString;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=1)]
+        public string cardNumber;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=2)]
+        public int printTemplateId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=3)]
+        public string computerName;
+        
+        public GenerateImageDataWrapRequest()
+        {
+        }
+        
+        public GenerateImageDataWrapRequest(InfoWebAX.AuthenticationHeader AuthenticationHeader, string connectionString, string cardNumber, int printTemplateId, string computerName)
+        {
+            this.AuthenticationHeader = AuthenticationHeader;
+            this.connectionString = connectionString;
+            this.cardNumber = cardNumber;
+            this.printTemplateId = printTemplateId;
+            this.computerName = computerName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GenerateImageDataWrapResponse", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
+    public partial class GenerateImageDataWrapResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=0)]
+        public InfoWebAX.ArrayOfXElement GenerateImageDataWrapResult;
+        
+        public GenerateImageDataWrapResponse()
+        {
+        }
+        
+        public GenerateImageDataWrapResponse(InfoWebAX.ArrayOfXElement GenerateImageDataWrapResult)
+        {
+            this.GenerateImageDataWrapResult = GenerateImageDataWrapResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="FetchQuestions", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
     public partial class FetchQuestionsRequest
     {
@@ -2202,6 +2311,58 @@ namespace InfoWebAX
         public AddTextAnswerResponse(bool AddTextAnswerResult)
         {
             this.AddTextAnswerResult = AddTextAnswerResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetStatusWrap", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
+    public partial class GetStatusWrapRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://infosalons.com.au/InfoServices/")]
+        public InfoWebAX.AuthenticationHeader AuthenticationHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=0)]
+        public string connectionString;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=1)]
+        public string area;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=2)]
+        public int contactKey;
+        
+        public GetStatusWrapRequest()
+        {
+        }
+        
+        public GetStatusWrapRequest(InfoWebAX.AuthenticationHeader AuthenticationHeader, string connectionString, string area, int contactKey)
+        {
+            this.AuthenticationHeader = AuthenticationHeader;
+            this.connectionString = connectionString;
+            this.area = area;
+            this.contactKey = contactKey;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetStatusWrapResponse", WrapperNamespace="http://infosalons.com.au/InfoServices/", IsWrapped=true)]
+    public partial class GetStatusWrapResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://infosalons.com.au/InfoServices/", Order=0)]
+        public InfoWebAX.ArrayOfXElement GetStatusWrapResult;
+        
+        public GetStatusWrapResponse()
+        {
+        }
+        
+        public GetStatusWrapResponse(InfoWebAX.ArrayOfXElement GetStatusWrapResult)
+        {
+            this.GetStatusWrapResult = GetStatusWrapResult;
         }
     }
     
@@ -3957,6 +4118,22 @@ namespace InfoWebAX
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<InfoWebAX.DeleteBarcodeResponse> InfoWebAX.InfoWebAXSoap.DeleteBarcodeAsync(InfoWebAX.DeleteBarcodeRequest request)
+        {
+            return base.Channel.DeleteBarcodeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<InfoWebAX.DeleteBarcodeResponse> DeleteBarcodeAsync(InfoWebAX.AuthenticationHeader AuthenticationHeader, string connectionString, int contactKey, string barcodeNumber)
+        {
+            InfoWebAX.DeleteBarcodeRequest inValue = new InfoWebAX.DeleteBarcodeRequest();
+            inValue.AuthenticationHeader = AuthenticationHeader;
+            inValue.connectionString = connectionString;
+            inValue.contactKey = contactKey;
+            inValue.barcodeNumber = barcodeNumber;
+            return ((InfoWebAX.InfoWebAXSoap)(this)).DeleteBarcodeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<InfoWebAX.DeleteTextAnswersResponse> InfoWebAX.InfoWebAXSoap.DeleteTextAnswersAsync(InfoWebAX.DeleteTextAnswersRequest request)
         {
             return base.Channel.DeleteTextAnswersAsync(request);
@@ -4293,6 +4470,23 @@ namespace InfoWebAX
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<InfoWebAX.GenerateImageDataWrapResponse> InfoWebAX.InfoWebAXSoap.GenerateImageDataWrapAsync(InfoWebAX.GenerateImageDataWrapRequest request)
+        {
+            return base.Channel.GenerateImageDataWrapAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<InfoWebAX.GenerateImageDataWrapResponse> GenerateImageDataWrapAsync(InfoWebAX.AuthenticationHeader AuthenticationHeader, string connectionString, string cardNumber, int printTemplateId, string computerName)
+        {
+            InfoWebAX.GenerateImageDataWrapRequest inValue = new InfoWebAX.GenerateImageDataWrapRequest();
+            inValue.AuthenticationHeader = AuthenticationHeader;
+            inValue.connectionString = connectionString;
+            inValue.cardNumber = cardNumber;
+            inValue.printTemplateId = printTemplateId;
+            inValue.computerName = computerName;
+            return ((InfoWebAX.InfoWebAXSoap)(this)).GenerateImageDataWrapAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<InfoWebAX.FetchQuestionsResponse> InfoWebAX.InfoWebAXSoap.FetchQuestionsAsync(InfoWebAX.FetchQuestionsRequest request)
         {
             return base.Channel.FetchQuestionsAsync(request);
@@ -4412,6 +4606,22 @@ namespace InfoWebAX
             inValue.code = code;
             inValue.textAnswer = textAnswer;
             return ((InfoWebAX.InfoWebAXSoap)(this)).AddTextAnswerAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<InfoWebAX.GetStatusWrapResponse> InfoWebAX.InfoWebAXSoap.GetStatusWrapAsync(InfoWebAX.GetStatusWrapRequest request)
+        {
+            return base.Channel.GetStatusWrapAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<InfoWebAX.GetStatusWrapResponse> GetStatusWrapAsync(InfoWebAX.AuthenticationHeader AuthenticationHeader, string connectionString, string area, int contactKey)
+        {
+            InfoWebAX.GetStatusWrapRequest inValue = new InfoWebAX.GetStatusWrapRequest();
+            inValue.AuthenticationHeader = AuthenticationHeader;
+            inValue.connectionString = connectionString;
+            inValue.area = area;
+            inValue.contactKey = contactKey;
+            return ((InfoWebAX.InfoWebAXSoap)(this)).GetStatusWrapAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -4936,16 +5146,15 @@ namespace InfoWebAX
         {
             if ((endpointConfiguration == EndpointConfiguration.InfoWebAXSoap))
             {
-                return new System.ServiceModel.EndpointAddress("https://cloud01.infosalons.com.au/beta/InfoServices/InfoWeb/InfoWebAX.asmx");
+                return new System.ServiceModel.EndpointAddress("https://aimstest.infosalons.com.au/alpha/infoservices/InfoWeb/InfoWebAX.asmx");
             }
             if ((endpointConfiguration == EndpointConfiguration.InfoWebAXSoap12))
             {
-                return new System.ServiceModel.EndpointAddress("https://cloud01.infosalons.com.au/beta/InfoServices/InfoWeb/InfoWebAX.asmx");
+                return new System.ServiceModel.EndpointAddress("https://aimstest.infosalons.com.au/alpha/infoservices/InfoWeb/InfoWebAX.asmx");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
-
-
+        
         public enum EndpointConfiguration
         {
             

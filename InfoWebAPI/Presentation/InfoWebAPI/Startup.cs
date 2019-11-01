@@ -1,5 +1,6 @@
-﻿using InfoWebAPI.Application;
-using InfoWebAPI.Application.Auth.Jwt;
+﻿using InfoWebAPI.Application.Auth.Jwt;
+using InfoWebAPI.Common;
+using InfoWebAPI.InfoWebAX;
 using InfoWebAPI.Infrastructure;
 using InfoWebAPI.Middleware;
 using InfoWebAPI.Persistence;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using NSwag;
+using NSwag.Generation.Processors;
 using NSwag.Generation.Processors.Security;
 using System;
 using System.Text;
@@ -32,6 +34,7 @@ namespace InfoServicesAPI
             services.AddPersistence(Configuration);
             services.AddCoreApplication(Configuration);
             services.AddInfoWebAXApplication(Configuration);
+            services.AddActivitiesApplication(Configuration);
             services.AddInfraStructure(Configuration);
             services.AddCors(o => o.AddPolicy("AllowOrigin", corsBuilder =>
             {
@@ -41,15 +44,18 @@ namespace InfoServicesAPI
             }));
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .ConfigureApplicationPartManager(p => p.FeatureProviders.Add(new GenericControllerFeatureProvider()))
+                //.AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
                 .AddControllersAsServices();
-            services.AddHttpContextAccessor();
 
+            services.AddHttpContextAccessor();
             services.AddOpenApiDocument(options =>
             {
                 options.Title = "InfoWeb API";
                 options.Version = "v1";
                 options.Description = "";
                 options.OperationProcessors.Add(new OperationSecurityScopeProcessor("JWT Token"));
+                options.OperationProcessors.Replace<OperationTagsProcessor>(new CustomTagsProcessor());
             });
 
             #region Auth
@@ -127,8 +133,12 @@ namespace InfoServicesAPI
                     document.SecurityDefinitions.Add("JWT Token", bearerApiSecurityScheme);
                 };
             });
-
             app.UseSwaggerUi3();
+            app.UseReDoc(options =>
+            {
+                options.Path = "/redoc";
+                options.DocumentPath = "/swagger/v1/swagger.json";
+            });
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));

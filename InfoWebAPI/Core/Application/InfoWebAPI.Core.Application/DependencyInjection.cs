@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Scrutor;
 using System.Reflection;
 
-namespace InfoWebAPI.Application
+namespace InfoWebAPI.InfoWebAX
 {
     public static class DependencyInjection
     {

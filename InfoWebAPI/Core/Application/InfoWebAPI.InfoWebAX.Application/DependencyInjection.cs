@@ -1,10 +1,12 @@
-﻿using InfoWebAPI.Application.Common.Behaviours;
+﻿using InfoWebAPI.InfoWebAX.Application;
+using InfoWebAPI.InfoWebAX.Common.Behaviours;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Scrutor;
 using System.Reflection;
 
-namespace InfoWebAPI.Application
+namespace InfoWebAPI.InfoWebAX
 {
     public static class DependencyInjection
     {
@@ -12,6 +14,12 @@ namespace InfoWebAPI.Application
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+            services.Scan(scan => scan
+                    .FromAssemblyOf<InfoWebAXWrapper>()
+                    .AddClasses()
+                    .UsingRegistrationStrategy(RegistrationStrategy.Skip)
+                    .AsMatchingInterface()
+                    .WithScopedLifetime());
 
             return services;
         }

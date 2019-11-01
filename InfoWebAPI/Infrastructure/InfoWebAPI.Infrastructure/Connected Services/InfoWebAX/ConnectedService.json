@@ -6,7 +6,7 @@
   },
   "ExtendedData": {
     "inputs": [
-      "https://cloud01.infosalons.com.au/beta/InfoServices/InfoWeb/InfoWebAX.asmx"
+      "https://aimstest.infosalons.com.au/alpha/infoservices/InfoWeb/InfoWebAX.asmx"
     ],
     "collectionTypes": [
       "System.Array",

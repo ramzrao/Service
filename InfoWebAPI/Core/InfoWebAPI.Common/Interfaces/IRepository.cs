@@ -11,5 +11,11 @@ namespace InfoWebAPI.Common.Interfaces
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);
 
         TEntity Get(Expression<Func<TEntity, bool>> predicate);
+
+        void Add(TEntity entity);
+
+        void Remove(TEntity entity);
+
+        void Update(TEntity entity);
     }
 }
